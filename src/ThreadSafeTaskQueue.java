@@ -32,6 +32,10 @@ public class ThreadSafeTaskQueue {
             lock.unlock();
         }
     }
+
+    public Queue<Task> getTaskQueue() {
+        return taskQueue;
+    }
 }
 
 

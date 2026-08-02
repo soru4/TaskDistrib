@@ -3,7 +3,7 @@ public class Task {
     private final String taskType;
     private final Runnable work;
 
-    private boolean completed = false;
+    private volatile boolean completed = false;
     public Task(String taskId, String taskType, Runnable work) {
         this.taskId = taskId;
         this.taskType = taskType;

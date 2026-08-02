@@ -35,19 +35,8 @@ public class App {
         /*Ending logic can be changed so that it doesnt stop ever or whatever a project requires */
         boolean allComplete = false;
         while (!allComplete) {
-            int i = 0;
-            for (Task task : tasks) {
-
-                if (!task.isCompleted()) {
-
-                    break;
-                }
-                i++;
-            }
-            if (i == tasks.size()) {
-                allComplete = true;
-            }
-            Thread.sleep(100);
+            allComplete = endingLogic(taskQueue);
+            Thread.sleep(100); 
         }
 
         if (allComplete) {
@@ -59,5 +48,12 @@ public class App {
             System.out.println("Some tasks are still pending.");
         }
 
+    }
+
+    public static boolean endingLogic(ThreadSafeTaskQueue taskqueue) {
+        if(taskqueue.getTaskQueue().isEmpty()){
+            return true;
+        }
+        return false;
     }
 }

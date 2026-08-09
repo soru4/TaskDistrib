@@ -6,6 +6,9 @@ import java.util.concurrent.atomic.AtomicReference;
 
 import org.junit.jupiter.api.Test;
 
+import com.threadpool.Task;
+import com.threadpool.ThreadSafeTaskQueue;
+
 public class ThreadSafeTaskQueueTest {
 
     @Test

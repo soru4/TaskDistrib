@@ -1,3 +1,4 @@
+package com.threadpool;
 public class Worker implements Runnable {
     private final ThreadSafeTaskQueue taskQueue;
     private volatile boolean running = true;

@@ -1,3 +1,4 @@
+package com.threadpool;
 public class Task {
     private final String taskId;
     private final String taskType;

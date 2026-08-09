@@ -5,6 +5,10 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.jupiter.api.Test;
 
+import com.threadpool.Task;
+import com.threadpool.ThreadPool;
+import com.threadpool.ThreadSafeTaskQueue;
+
 public class ThreadPoolTest {
 
     @Test

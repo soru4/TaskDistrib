@@ -1,18 +1,62 @@
-## Getting Started
+# Task Distributor
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+A lightweight, customizable system that distributes tasks over multiple threads efficiently. 
 
-## Folder Structure
+## 📋 Table of Contents
+- [Features](#-features)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Tech Stack](#-tech-stack)
+- [Contributing](#-contributing)
+- [License](#-license)
 
-The workspace contains two folders by default, where:
+## Features
+  * **Dynamic Worker Management:** Scale active threads dynamically between core and max capacity.
+  * **Custom Rejection Handlers:** Built-in strategies for task rejection.
+  * **Thread Lifecycle Hooks:** Pre and post-execution hooks for task metrics and monitoring.
+  * **Graceful Shutdown:** Implements orderly teardown waiting for active tasks to complete.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Installation
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+Download the JAR from the releases tab. It is also recommended to download the JavaDoc zip. 
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+Move the JAR into the lib folder of your java project. 
 
-## Dependency Management
+Then include the jar into your project using your IDE. 
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+
+## Usage
+
+Now your project should be setup to use the Task Distributor. 
+
+Here is some starter testing code to ensure there are no issues with the jar
+
+```Java
+import com.threadpool.ThreadPool;
+import com.threadpool.ThreadSafeTaskQueue;
+
+public class Main {
+    public static void main(String[] args) {
+        ThreadSafeTaskQueue queue = new ThreadSafeTaskQueue();
+        ThreadPool pool = new ThreadPool(5, queue); // the 5 refers to the number of threads that you would like in the ThreadPool. 
+        
+        System.out.println("Custom JAR loaded via Maven!");
+    }
+}
+```
+
+Then you can add tasks to the queue. 
+
+```Java
+Runnable w = () -> {
+  //whatever task you want to do. 
+}
+
+Task t = new Task("Task 1", "Type 1", w); // (TASK_NAME, TASK_TYPE, WORK)
+pool.executeTask(t);
+```
+
+It is recommended that you create a List instance to track all of the tasks. 
+
+## 📄 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

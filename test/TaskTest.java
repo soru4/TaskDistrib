@@ -9,6 +9,9 @@ import com.threadpool.Task;
 
 public class TaskTest {
 
+    /** 
+     * @throws Exception
+     */
     @Test
     public void execute_setsCompletedAndRunsWork() throws Exception {
         CountDownLatch latch = new CountDownLatch(1);

@@ -11,6 +11,9 @@ import com.threadpool.ThreadSafeTaskQueue;
 
 public class ThreadSafeTaskQueueTest {
 
+    /** 
+     * @throws Exception
+     */
     @Test
     public void submitAndTake_roundTripsTask() throws Exception {
         ThreadSafeTaskQueue queue = new ThreadSafeTaskQueue();
@@ -22,6 +25,9 @@ public class ThreadSafeTaskQueueTest {
         assertSame(task, taken, "The taken task should be the same instance that was submitted");
     }
 
+    /** 
+     * @throws Exception
+     */
     @Test
     public void take_waitsUntilTaskIsAvailable() throws Exception {
         ThreadSafeTaskQueue queue = new ThreadSafeTaskQueue();

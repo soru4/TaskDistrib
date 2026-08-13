@@ -11,6 +11,9 @@ import com.threadpool.ThreadSafeTaskQueue;
 
 public class ThreadPoolTest {
 
+    /** 
+     * @throws Exception
+     */
     @Test
     public void executeTask_completesTask() throws Exception {
         ThreadSafeTaskQueue queue = new ThreadSafeTaskQueue();

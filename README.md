@@ -34,6 +34,7 @@ Here is some starter testing code to ensure there are no issues with the jar
 ```Java
 import com.threadpool.ThreadPool;
 import com.threadpool.ThreadSafeTaskQueue;
+import com.threadpool.Task;
 
 public class Main {
     public static void main(String[] args) {

@@ -59,5 +59,33 @@ pool.executeTask(t);
 
 It is recommended that you create a List instance to track all of the tasks. 
 
+
+It is recommended that you create a List instance to track all of the tasks. 
+
+To shut down the thread pool
+```Java
+ThreadSafeTaskQueue queue = new ThreadSafeTaskQueue();
+        ThreadPool pool = new ThreadPool(5, queue); // the 5 refers to the number of threads that you would like in the ThreadPool. 
+List<Task> addedTasks = new ArrayList<Task>();
+Runnable w = () -> {};
+Task t = new Task("task 1", " task type 1", w);
+addedTasks.add(t);// adding tasks to list. 
+pool.executeTask(t);
+bool allTasksComplete = false;
+
+while(!allTasksComplete){
+  allTasksComplete = true;
+  for(Task b : addedTasks){
+      if(!b.isCompleted){
+        allTasksComplete= false;
+      }
+  }
+}
+
+if (allTasksComplete)
+   pool.shutdown();
+
+```
+
 ## 📄 License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
